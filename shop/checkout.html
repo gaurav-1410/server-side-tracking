@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Checkout – Coffee House</title>
     <link rel="stylesheet" href="css/style.css" />
-    <!-- CONSENT BANNER: added in Day 1, Part 7 (must load BEFORE GTM) -->
+    <!-- CONSENT MODE v2 DEFAULTS: must run BEFORE the GTM snippet -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "granted",
+        security_storage: "granted",
+        wait_for_update: 500,
+      });
+    </script>
+    <!-- COOKIE BANNER (CookieConsent v3, open source) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.1.0/dist/cookieconsent.umd.js"
+    ></script>
+    <script defer src="js/consent.js"></script>
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
