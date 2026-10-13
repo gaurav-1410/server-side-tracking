@@ -1,5 +1,33 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><title>Coffee House</title></head>
-<body><h1>Coffee House – coming soon</h1></body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coffee House – Specialty Coffee</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- CONSENT BANNER: added in Day 1, Part 7 (must load BEFORE GTM) -->
+  <!-- GOOGLE TAG MANAGER: snippet added in Day 1, Part 6 -->
+</head>
+<body data-page="list">
+  <!-- GOOGLE TAG MANAGER (noscript): added in Day 1, Part 6 -->
+  <header>
+    <a class="logo" href="index.html">☕ Coffee House</a>
+    <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+  </header>
+  <main>
+    <h1>Our coffee</h1>
+    <div class="grid" id="product-grid"></div>
+  </main>
+  <footer>
+    <p><strong>Get our newsletter</strong> – brewing tips and new beans every month.</p>
+    <form id="newsletter">
+      <input type="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="note">Demo shop for a server-side tracking project. Use test data only – no real orders.</p>
+  </footer>
+  <script src="js/products.js"></script>
+  <script src="js/tracking.js"></script>
+  <script src="js/shop.js"></script>
+</body>
 </html>

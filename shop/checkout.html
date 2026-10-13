@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout – Coffee House</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- CONSENT BANNER: added in Day 1, Part 7 (must load BEFORE GTM) -->
+  <!-- GOOGLE TAG MANAGER: snippet added in Day 1, Part 6 -->
+</head>
+<body data-page="checkout">
+  <!-- GOOGLE TAG MANAGER (noscript): added in Day 1, Part 6 -->
+  <header>
+    <a class="logo" href="index.html">☕ Coffee House</a>
+    <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+  </header>
+  <main>
+    <h1>Checkout</h1>
+    <p>Order total (incl. VAT, excl. shipping): <strong id="checkout-total"></strong></p>
+    <form class="step" id="step-shipping">
+      <h2>1. Shipping</h2>
+      <label><input type="radio" name="shipping" value="standard" checked> Standard (4,90 €)</label>
+      <label><input type="radio" name="shipping" value="express"> Express (9,90 €)</label>
+      <button type="submit">Continue to payment</button>
+    </form>
+    <form class="step" id="step-payment" hidden>
+      <h2>2. Payment</h2>
+      <label><input type="radio" name="payment" value="paypal" required> PayPal</label>
+      <label><input type="radio" name="payment" value="credit_card"> Credit card</label>
+      <label>Email for order confirmation<br><input type="email" id="email" placeholder="test@example.com" required></label>
+      <p class="note">Demo only – no payment is taken. Use a test email.</p>
+      <button type="submit">Place order</button>
+    </form>
+    <div id="step-done" hidden>
+      <h2>Thank you for your order!</h2>
+      <p>Order number: <strong id="order-id"></strong></p>
+      <a href="index.html">Continue shopping</a>
+    </div>
+  </main>
+  <footer>
+    <p><strong>Get our newsletter</strong> – brewing tips and new beans every month.</p>
+    <form id="newsletter">
+      <input type="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="note">Demo shop for a server-side tracking project. Use test data only – no real orders.</p>
+  </footer>
+  <script src="js/products.js"></script>
+  <script src="js/tracking.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
