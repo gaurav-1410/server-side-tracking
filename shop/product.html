@@ -1,46 +1,78 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Product – Coffee House</title>
-  <link rel="stylesheet" href="css/style.css">
-  <!-- CONSENT BANNER: added in Day 1, Part 7 (must load BEFORE GTM) -->
-  <!-- GOOGLE TAG MANAGER: snippet added in Day 1, Part 6 -->
-</head>
-<body data-page="product">
-  <!-- GOOGLE TAG MANAGER (noscript): added in Day 1, Part 6 -->
-  <header>
-    <a class="logo" href="index.html">☕ Coffee House</a>
-    <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
-  </header>
-  <main>
-    <div class="product">
-      <div class="thumb big" id="p-thumb"></div>
-      <div>
-        <h1 id="p-name"></h1>
-        <p class="price" id="p-price"></p>
-        <p id="p-desc"></p>
-        <label>Quantity <input type="number" id="qty" value="1" min="1"></label>
-        <button id="add-to-cart">Add to cart</button>
-        <p id="added-msg" hidden>Added to cart. <a href="cart.html">View cart</a></p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product – Coffee House</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- CONSENT BANNER: added in Day 1, Part 7 (must load BEFORE GTM) -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MQN3G5MZ");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body data-page="product">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MQN3G5MZ"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+      <a class="logo" href="index.html">☕ Coffee House</a>
+      <a href="cart.html">Cart (<span data-cart-count>0</span>)</a>
+    </header>
+    <main>
+      <div class="product">
+        <div class="thumb big" id="p-thumb"></div>
+        <div>
+          <h1 id="p-name"></h1>
+          <p class="price" id="p-price"></p>
+          <p id="p-desc"></p>
+          <label
+            >Quantity <input type="number" id="qty" value="1" min="1"
+          /></label>
+          <button id="add-to-cart">Add to cart</button>
+          <p id="added-msg" hidden>
+            Added to cart. <a href="cart.html">View cart</a>
+          </p>
+        </div>
       </div>
-    </div>
-    <section id="also-bought" hidden>
-      <h2>Customers also bought</h2>
-      <div class="grid" id="also-bought-grid"></div>
-    </section>
-  </main>
-  <footer>
-    <p><strong>Get our newsletter</strong> – brewing tips and new beans every month.</p>
-    <form id="newsletter">
-      <input type="email" placeholder="you@example.com" required>
-      <button type="submit">Subscribe</button>
-    </form>
-    <p class="note">Demo shop for a server-side tracking project. Use test data only – no real orders.</p>
-  </footer>
-  <script src="js/products.js"></script>
-  <script src="js/tracking.js"></script>
-  <script src="js/shop.js"></script>
-</body>
+      <section id="also-bought" hidden>
+        <h2>Customers also bought</h2>
+        <div class="grid" id="also-bought-grid"></div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        <strong>Get our newsletter</strong> – brewing tips and new beans every
+        month.
+      </p>
+      <form id="newsletter">
+        <input type="email" placeholder="you@example.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="note">
+        Demo shop for a server-side tracking project. Use test data only – no
+        real orders.
+      </p>
+    </footer>
+    <script src="js/products.js"></script>
+    <script src="js/tracking.js"></script>
+    <script src="js/shop.js"></script>
+  </body>
 </html>
