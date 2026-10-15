@@ -88,7 +88,7 @@ gtm/                  container exports (secrets redacted) + custom client templ
 webhook/              backend simulator for refund webhooks
 tests/                Playwright QA suite (+ debug_requests.py diagnostic)
 sql/                  BigQuery: net revenue, reconciliation, funnel
-docs/                 tracking plan, implementation guide, debug runbook, QA checklist, webhook spec, debug log
+docs/                 tracking plan
 scripts/              redact_gtm_export.py
 ```
 
