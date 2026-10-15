@@ -1,0 +1,34 @@
+# ---------- Python / uv ----------
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.python-version.local
+# uv.lock is intentionally NOT ignored: commit it for reproducible installs.
+
+# ---------- Testing ----------
+.pytest_cache/
+tests/report.xml
+test-results/
+playwright-report/
+.coverage
+htmlcov/
+
+# ---------- Secrets (never commit) ----------
+.env
+.env.*
+!.env.example
+*.secret
+secrets/
+
+# Raw GTM exports may contain the Meta access token and webhook secret.
+# Save raw downloads as *.raw.json, redact them, then commit the redacted copy.
+gtm/*.raw.json
+
+# ---------- Editors / OS ----------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
