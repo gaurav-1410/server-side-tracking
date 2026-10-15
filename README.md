@@ -22,20 +22,25 @@ copy out to each vendor, and personal data handled on infrastructure you control
 ```mermaid
 flowchart LR
     subgraph Browser
-        Shop[Demo shop<br/>dataLayer + event_id] --> CMP[Cookie banner<br/>Consent Mode v2]
-        Shop --> WebGTM[GTM web container]
-        WebGTM -- Meta Pixel<br/>(with consent) --> MetaB[(Meta)]
+        Shop["Demo shop<br/>dataLayer + event_id"]
+        CMP["Cookie banner<br/>Consent Mode v2"]
+        WebGTM["GTM web container"]
+        Shop --> WebGTM
+        CMP -- "consent state" --> WebGTM
+        WebGTM -- "Meta Pixel<br/>(with consent)" --> MetaB[("Meta")]
     end
-    WebGTM -- GA4 hits incl. evnid,<br/>_fbp/_fbc, email* --> SGTM
-    Backend[Shop backend<br/>refund webhook] -- POST /webhook/order<br/>+ shared secret --> SGTM
-    subgraph SGTM[TAGGRS server container]
-        GA4C[GA4 client] --> T1[GA4 tag<br/>PII + Meta IDs removed]
-        GA4C --> T2[Meta CAPI tag<br/>consent-gated, hashed email]
-        WH[Order Webhook client<br/>custom template] --> T3[GA4 refund tag]
+    Shop -. "order placed<br/>(transaction_id)" .-> Backend["Shop backend<br/>simulated by webhook/send_refund.py"]
+    WebGTM -- "GA4 hits incl. evnid,<br/>_fbp/_fbc, email*" --> GA4C
+    Backend -- "refund, days later:<br/>POST /webhook/order + secret" --> WH
+    subgraph SGTM["TAGGRS server container"]
+        GA4C["GA4 client"] --> T1["GA4 tag<br/>PII + Meta IDs removed"]
+        GA4C --> T2["Meta CAPI tag<br/>consent-gated, hashed email"]
+        WH["Order Webhook client<br/>custom template"] --> T3["GA4 refund tag"]
     end
-    T1 --> GA4[(GA4)] --> BQ[(BigQuery)]
+    T1 --> GA4[("GA4")]
     T3 --> GA4
-    T2 --> MetaS[(Meta CAPI)]
+    GA4 --> BQ[("BigQuery")]
+    T2 --> MetaS[("Meta CAPI")]
 ```
 \* email only with marketing consent; hashed (SHA-256) on the server before it reaches Meta.
 
