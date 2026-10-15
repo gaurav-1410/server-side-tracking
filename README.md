@@ -73,12 +73,11 @@ Derived from 7 business questions (`docs/tracking-plan/`). Every event exists be
 - **Automated QA** (`tests/`, Playwright + pytest, GitHub Actions on push and daily): 8 dataLayer contract tests + 4 tests on what actually reaches the tagging server and Meta per consent state.
 - **Warehouse validation:** GA4 → BigQuery export; SQL for net revenue after refunds and purchase reconciliation (`sql/`).
 
-## Findings from debugging (selection – full log in `docs/debug-log.md`)
+## Findings from debugging
 
 1. **Privacy bug found in BigQuery:** `user_id` was still sent after "Reject all" (GA4 strips its cookie ID, not custom IDs) – declined sessions could be re-identified. Fixed with a consent-aware GTM variable; now covered by an automated test.
 2. **"No tags were evaluated"** in server Preview while DebugView was empty: events reached the server but the GA4 forwarding tag was missing from the previewed version.
 3. **Unplanned `SubscribedButtonClick`** events spotted in the Network tab: Meta's automatic events, disabled.
-4. **Automated tests initially saw no Meta and few GA4 events:** the Meta Pixel drops traffic from browsers flagged as automated, and the Google tag sends server-side hits through a **service worker** (`/_/service_worker/…/sw_iframe.html`) that Playwright doesn't observe. Fixed in the test browser setup; the Google tag sends `event_id` as **`evnid`**.
 
 ## Repository structure
 
